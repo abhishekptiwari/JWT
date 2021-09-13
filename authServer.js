@@ -37,8 +37,6 @@ app.post('/login',(req,res)=>{
     res.json({accessToken:accessToken,refreshToken:refreshToken})
 })
 
-
-
 function generateAccessToken(user) {
     return  jwt.sign(user, process.env.ACCESS_TOKEN_SECRET,{expiresIn:'25s'})
   }
