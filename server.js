@@ -1,12 +1,11 @@
 require('dotenv').config();
 
-const express=require("express");
 const app = express();
-const jwt=require('jsonwebtoken');
+const express = require("express");
+const jwt = require('jsonwebtoken');
 const port = 8000;
 
-app.use(express.json())
-
+app.use(express.json())//middleware
 
 const posts=[
     {
@@ -18,7 +17,6 @@ const posts=[
         "title":"google"
     }
 ]
-
 
 app.get('/posts',authenticateToken,(req,res)=>{
     res.json(posts.filter(post => post.username === req.user.name ))
